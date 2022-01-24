@@ -58,7 +58,7 @@ namespace Nes
 		{
 			if (*s == L' ' && Core::StringCompare(s+1,&c,1) == 0)
 			{
-				const ulong line = std::wcstoul( s+2, NULL, 10 );
+				const ulong line = wcstoul( s+2, NULL, 10 );
 
 				if (errno != ERANGE && line < ~0U)
 					return line;

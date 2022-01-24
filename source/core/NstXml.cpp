@@ -729,7 +729,7 @@ namespace Nes
 			if (*string)
 			{
 				wchar_t* endptr = NULL;
-				value = std::wcstoul( string, end ? &endptr : NULL, base );
+				value = wcstoul( string, end ? &endptr : NULL, base );
 
 				if (end)
 					*end = (endptr ? endptr : string);
