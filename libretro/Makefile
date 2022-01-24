@@ -358,6 +358,15 @@ else ifeq ($(platform), ngc)
 	PLATFORM_DEFINES += -DGEKKO -DHW_DOL -mrvl -mcpu=750 -meabi -mhard-float
 	PLATFORM_DEFINES += -U__INT32_TYPE__ -U __UINT32_TYPE__ -D__INT32_TYPE__=int
 	STATIC_LINKING = 1
+else ifeq ($(platform), gcce)
+	EXT=a
+	TARGET := $(TARGET_NAME)_libretro_$(platform).$(EXT)
+	CC = arm-none-symbianelf-gcc$(EXE_EXT)
+	CXX = arm-none-symbianelf-gcc$(EXE_EXT)
+	CC_AS = arm-none-symbianelf-gcc$(EXE_EXT)
+	AR = arm-none-symbianelf-ar$(EXE_EXT)
+#	PLATFORM_DEFINES +=
+	STATIC_LINKING = 1
 
 # Nintendo Wii
 else ifeq ($(platform), wii)
